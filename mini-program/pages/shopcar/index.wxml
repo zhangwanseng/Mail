@@ -1,0 +1,42 @@
+<!--pages/shopcar/index.wxml-->
+<view class="shopcar">
+    <view class="shop_list">
+        <block wx:for="{{shopCarList}}" wx:key="index" wx:if="{{shopCarList.length}}">
+            <view class="shop_item">
+                <view class="shop_left">
+                    <checkbox data-index="{{index}}" checked="{{item.checked}}" bindtap="selectItem"></checkbox>
+                </view>
+                <view class="shop_center">
+                    <image src="{{item.pic}}"></image>
+                </view>
+                <view class="shop_right">
+                    <view class="shop_prodName">{{item.prodName}}</view>
+                    <view class="shop_skuName">{{item.skuName}}</view>
+                    <view class="shop_item_footer">
+                        <Price price="{{item.price}}"></Price>
+                        <!-- <text>￥{{item.price}}</text> -->
+                        <view class="shop_price">
+                            <view bindtap="reduceShopCount" data-index="{{index}}">-</view>
+                            <view>{{item.prodCount}}</view>
+                            <view bindtap="addShopCount" data-index="{{index}}">+</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view wx:if="{{shopCarList.length===0}}">暂无数据</view>
+    </view>
+    <view class="shop_footer" wx:if="{{shopCarList.length}}">
+        <view class="shop_footer_checkbox">
+            <checkbox checked="{{allSelect}}" data-index="{{index}}" bindtap="allSelect"></checkbox>
+            全选
+        </view>
+        <view class="shop_footer_delete" bindtap="handleDelete">删除</view>
+        <view class="shop_footer_price" style="display: flex;">
+            <text>合计：</text>
+            <Price price="{{totalMoney}}"></Price>
+            <!-- <text class="end_price">￥{{totalMoney}}</text> -->
+        </view>
+        <view class="shop_footer_isCount" bindtap="handleCount">结算</view>
+    </view>
+</view>

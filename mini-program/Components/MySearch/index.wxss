@@ -1,0 +1,14 @@
+/* Components/MySearch/index.wxss */
+.home_searchs {
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    left: 35%;
+    top: 10px;
+}
+.mysearch{
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  background-color: white;
+}

@@ -1,0 +1,50 @@
+<!--pages/searchResult/index.wxml-->
+<view class="container">
+    <!-- 搜索框 -->
+    <view class="home_top">
+        <input type="text" placeholder="手机" placeholder-style="color:#999;" class="home_top_search" value="{{defaultValue}}" bindinput="changeInput"/>
+        <image src="/images/icon/search.png" class="home_search" />
+        <view bindtap="changeStyle">
+            <!-- 一版 -->
+            <view wx:if="{{flag===true}}">
+                <image src="/images/icon/search-col2.png" style="width: 25px;height: 25px;"></image>
+            </view>
+            <!-- 二版 -->
+            <view wx:if="{{flag===false}}">
+                <image src="/images/icon/search-col.png" style="width: 25px;height: 25px;"></image>
+            </view>
+        </view>
+
+    </view>
+    <!-- 点击事件 -->
+    <view>
+        <view class="handleOptions">
+            <text wx:for="{{optionArr}}" wx:key="index" class="{{index===activeIndex?'active':''}}" bindtap="changeIndex" data-myIndex="{{index}}">{{item}}</text>
+        </view>
+        <!-- 横着排的 -->
+        <view wx:if="{{flag===true}}">
+            <view wx:for="{{searchList}}" wx:key="prodId" class="search_list">
+                <view class="search_list_item" style="width: 100%;" bindtap="toDetail" data-id="{{item.prodId}}">
+                    <image src="{{item.pic}}" style="width: 35%;"></image>
+                    <view class="search_list_desc" style="width: 55%;">
+                        <view>{{item.prodName}}</view>
+                        <view class="search_list_price">￥{{item.price}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 纵着排的 -->
+        <view class="search_list_raw" wx:if="{{flag===false}}">
+            <view wx:for="{{searchList}}" wx:key="prodId" class="search_list1">
+                <view class="search_list_item1" bindtap="toDetail" data-id="{{item.prodId}}">
+                    <image src="{{item.pic}}"></image>
+                    <view>{{item.prodName}}</view>
+                    <view class="search_list_price">￥{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+

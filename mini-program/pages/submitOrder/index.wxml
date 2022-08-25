@@ -1,0 +1,81 @@
+<!--pages/submitOrder/index.wxml-->
+<view class="submit_order">
+    <!-- 地址 -->
+    <view class="address" bindtap="toAddress">
+        <view class="address_left">
+            <image src="/images/icon/addr.png"></image>
+        </view>
+        <view class="address_center">
+            <view>
+                <text>{{defaultAddress.receiver}} </text>
+                <text>{{defaultAddress.mobile}}</text>
+            </view>
+            <view class="myAddress">
+            {{defaultAddress.province}}{{defaultAddress.city}}{{defaultAddress.area}}{{defaultAddress.addr}}
+            </view>
+        </view>
+        <view class="address_right" bindtap="toEditAddress" data-id="{{defaultAddress.addrId}}">
+            <image src="/images/icon/more.png"></image>
+        </view>
+    </view>
+    <!-- 订单项 -->
+    <view class="shop_list">
+        <block wx:for="{{submitList}}" wx:key="index">
+            <view class="shop_item">
+                <view class="shop_center">
+                    <image src="{{item.pic}}"></image>
+                </view>
+                <view class="shop_right">
+                    <view class="shop_prodName">{{item.prodName}}</view>
+                    <view class="shop_skuName">{{item.skuName}}</view>
+                    <view class="shop_item_footer">
+                        <!-- <text>￥{{item.price}}</text> -->
+                        <Price price="{{item.price}}"></Price>
+                        <view class="shop_price">
+                            <view>x {{item.prodCount}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 买家留言 -->
+    <view class="message">
+        <text>买家留言: </text>
+        <input type="text" placeholder="  给卖家留言" />
+    </view>
+    <!-- 订单总额 -->
+    <view class="order_price">
+        <text>订单总额：</text>
+        <!-- <text>￥{{total}}</text> -->
+        <Price price="{{total}}"></Price>
+    </view>
+    <!-- 运费 -->
+    <view class="order_price">
+        <text>运费：</text>
+        <!-- <text>￥{{transfee}}</text> -->
+        <Price price="{{transfee}}"></Price>
+    </view>
+    <!-- 优惠金额 -->
+    <view class="order_price">
+        <text>优惠金额：</text>
+        <!-- <text>￥{{orderReduce}}</text> -->
+        <Price price="{{orderReduce}}"></Price>
+    </view>
+    <!-- 小计 -->
+    <view class="end_price">
+        <text>小计：</text>
+        <!-- <text>￥{{actualTotal}}</text> -->
+        <Price price="{{actualTotal}}"></Price>
+    </view>
+    <view style="height: 50px;"></view>
+    <!-- 定位合计 -->
+    <view class="sub_footer">
+        <view style="display: flex;">
+            <text>合计：</text>
+            <!-- <text>￥{{total}}</text> -->
+            <Price price="{{total}}"></Price>
+        </view>
+        <view class="sub_order" bindtap="sumbitOrder">提交订单</view>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+/* Components/MyPrice/index.wxss */
+.signal{
+    color: red;
+}
+.price_int{
+    color: red;
+    font-size:18px;
+}
+.price_float{
+    color: red;
+}

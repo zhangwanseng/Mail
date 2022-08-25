@@ -1,0 +1,163 @@
+/* pages/shopcar/index.wxss */
+.shopcar {
+    width: 100%;
+    height: 1005px;
+    position: relative;
+    background-color: #efefef;
+}
+
+.shop_item {
+    position: relative;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    padding: 0 10px;
+    border: 1px solid #eee;
+    align-items: center;
+}
+
+.shop_left {
+    width: 10%;
+}
+
+.shop_center {
+    width: 30%;
+}
+
+.shop_item image {
+    width: 100px;
+    height: 100px;
+    background-color: powderblue;
+}
+
+.shop_right {
+    /* padding-right: 15px; */
+    /* flex-direction: column; */
+    flex: 1;
+    /* overflow: hidden; */
+    /* justify-content: space-between; */
+    /* text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; */
+    height: 100px;
+    /* line-height: 50px; */
+}
+
+.shop_right view {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.shop_item_footer {
+    display: flex;
+    position: relative;
+}
+
+.shop_price {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    border: 2rpx solid rgba(0,0,0,.1);
+    margin-left: -2rpx;
+}
+
+.shop_price view {
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid #ccc; */
+    border-left: 2rpx solid rgba(0,0,0,.1);
+    text-align: center;
+    line-height: 30px;
+}
+
+.shop_footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    padding: 0 10px;
+}
+
+.shop_footer_checkbox {
+    width: 10%;
+}
+
+.shop_footer_delete {
+    width: 10%;
+    font-size: 12px;
+    color: red;
+}
+
+.shop_footer_price {
+    width: 45%;
+}
+
+.end_price {
+    color: red;
+}
+
+.shop_footer_isCount {
+    flex: 1;
+    background: red;
+    color: white;
+    text-align: center;
+}
+
+/* 重写 checkbox 样式 */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input {
+    border-radius: 50%;
+    /* 圆角 */
+    width: 35rpx;
+    /* 背景的宽 */
+    height: 35rpx;
+    /* 背景的高 */
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    border: 1rpx solid #eb2444;
+    background: #eb2444;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    border-radius: 50%;
+    /* 圆角 */
+    width: 40rpx;
+    /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 40rpx;
+    /* 选中后对勾大小，不要超过背景的尺寸 */
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 30rpx;
+    /* 对勾大小 30rpx */
+    color: #fff;
+    /* 对勾颜色 白色 */
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.shop_skuName {
+    font-size: 10px;
+    line-height: 20px;
+    color: #999;
+}
+
+.shop_prodName {
+    line-height: 28rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

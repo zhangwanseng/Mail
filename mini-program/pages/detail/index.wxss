@@ -1,0 +1,264 @@
+/* pages/classify/index.wxss */
+
+.detail {
+    position: relative;
+    background-color: #f7f7f7;
+    width: 100%;
+    height: 100%;
+}
+
+.detail_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail_title_left {
+    /* background: cadetblue; */
+    flex: 1;
+    padding: 10px 0;
+}
+
+.detail_title_right {
+    /* background: cadetblue; */
+    border-left: 1px solid #efefef;
+    padding: 10px;
+}
+
+.detail_desc {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.detail_price {
+    color: red;
+    font-size: 20px;
+    padding: 10px 0;
+}
+/* 底部加购 */
+.detail_foot {
+    width: 100%;
+    height: 50px;
+    /* line-height: 50px; */
+    display: flex;
+    position: fixed;
+    bottom: -1px;
+    left: 0;
+    border-top: 1px solid #efefef;
+    /* justify-content: space-around; */
+    align-items: center;
+    background-color: white;
+}
+
+.detail_foot image {
+    width: 20px;
+    height: 20px;
+}
+
+.detail_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+}
+
+.detail_text {
+    font-size: 12px;
+    color: #999;
+}
+
+.addCar {
+    background-color: #574e61;
+    /* padding: 16.5px; */
+    color: white;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.nowPurchase {
+    background-color: #eb2443;
+    /* padding: 16.5px; */
+    color: white;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.detail_foots{
+    height: 60px;
+}
+.shop_count{
+    width: 23px;
+    height: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 16px;
+    position: fixed;
+    font-size: 12px;
+    left: 105px;
+    bottom: 29px;
+}
+/* 领券详情 */
+.discount {
+    padding: 15px;
+    background-color: white;
+    margin: 10px 0;
+    display: flex;
+    width: 100%;
+    font-size: 12px;
+    color: #999;
+}
+
+.discount_left {
+    width: 15%;
+}
+/* 小三角 */
+.discount_center {
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    /* height: auto; */
+}
+
+.discount_center view {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin: 4px;
+    position: relative;
+}
+
+.discount_center view::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 7px solid #fff;
+    border-right: 0px solid transparent;
+}
+.discount_center view::after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left:0px solid transparent ;
+    border-right: 7px solid #fff;
+}
+
+.discount_right {
+    width: 15%;
+}
+/* 评价区域 */
+.commend{
+    background: white;
+}
+.commend_title{
+    padding: 0 10px;
+    display: flex;
+    height: 50px;
+    /* line-height: 50px; */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.commend_title image{
+  width: 15px;
+  height: 15px;
+}
+.commend_main{
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+.commend_main view{
+    background: #ffefef;
+    padding: 7px;
+    margin: 7px;
+    border-radius: 5px;
+}
+/* 弹窗样式 */
+.mask_content{
+    padding: 0 10px;
+}
+.mask_content image{
+  width: 100px;
+  height: 100px;
+  background-color: #efefef;
+}
+.mask_content_top{
+    display: flex;
+}
+.mask_content_top>view{
+    padding-left: 10px;
+    line-height: 40px;
+}
+.detail_mask_count{
+    display: flex;
+    justify-content: space-between;
+}
+.detail_mask_count text{
+    font-size: 12px;
+    color: #999;
+    height: 45px;
+    line-height: 30px;
+}
+.detail_mask_footer{
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: -1px;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+}
+.addCar1 {
+    background-color: #574e61;
+    color: white;
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.nowPurchase1 {
+    background-color: #eb2443;
+    color: white;
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.mask_content_item text{
+    font-size: 12px;
+    color: #999;
+    height: 30px;
+    line-height: 30px;
+}
+.mask_content_item view{
+    height: 45px;
+    line-height: 45px;
+}
+.mask_content_item button{
+    margin-right: 10px;
+}
+/* 选中项的高亮色 */
+.mask_content_item button.active{
+    background-color: red ;
+    color: white;
+}
+.detail_long_img{
+    width: 100%;
+}
+.detail_myImg{
+    width: 100%;
+}

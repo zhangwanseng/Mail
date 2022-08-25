@@ -1,0 +1,6 @@
+<!--Components/MyPrice/index.wxml-->
+<view class="myprice">
+<text class="signal">{{signal}}</text>
+<text class="price_int">{{int}}</text>
+<text class="price_float">.{{float}}</text>
+</view>

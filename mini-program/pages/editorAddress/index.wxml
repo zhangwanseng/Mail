@@ -1,0 +1,50 @@
+<!--pages/editorAddress/index.wxml-->
+<view>
+    <view class="edit_address">
+        <view class="edit_address_item">
+            <view>收货人</view>
+            <input type="text" placeholder="姓名" maxlength="15" value="{{isName}}" bindinput="handleIsName" />
+        </view>
+        <view class="edit_address_item">
+            <view>手机号码</view>
+            <input type="text" placeholder="11位手机号" maxlength="11" value="{{isPhone}}" bindinput="handleIsPhone" />
+        </view>
+        <view class="edit_address_item" bindtap="isArea">
+            <view>所在地区</view>
+            <!-- <input type="text" placeholder="所在地区" value="{{address.pInput}}" /> -->
+            <!-- <view>{{finallyData}}</view> -->
+            <!-- <text>{{privinceName}}</text><text>{{cityName}}</text><text>{{areaName}}</text> -->
+            <text>{{finallyData}}</text>
+            <!-- 选择框 -->
+        </view>
+        <view class="edit_address_item">
+            <view>详细地址</view>
+            <!-- <input type="text" placeholder="如楼号/单元/门牌号" value="{{address.aInput}}" /> -->
+            <input type="text" placeholder="如楼号/单元/门牌号"  value="{{detailAddress}}" bindinput="handleDetailAddress"/>
+        </view>
+    </view>
+    <view class="save_address">
+        <view bindtap="editAddress">修改收货地址</view>
+    </view>
+    <view class="delete_address">
+        <view bindtap="deleteAddress">删除收货地址</view>
+    </view>
+</view>
+<view class="mask" wx:if="{{show}}">
+    <van-popup show="{{ true }}" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+        <picker-view value="{{addrArr}}" bindchange="changeLocation" style="width: 100%;height: 300px;">
+            <!-- 省 -->
+            <picker-view-column>
+                <view wx:for="{{privinceArr}}">{{item.areaName}}</view>
+            </picker-view-column>
+            <!-- 市 -->
+            <picker-view-column>
+                <view wx:for="{{cityArr}}">{{item.areaName}}</view>
+            </picker-view-column>
+            <!-- 区 -->
+            <picker-view-column>
+                <view wx:for="{{areaArr}}">{{item.areaName}}</view>
+            </picker-view-column>
+        </picker-view>
+    </van-popup>
+</view>

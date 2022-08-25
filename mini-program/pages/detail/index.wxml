@@ -1,0 +1,152 @@
+<!--pages/detail/index.wxml-->
+
+<view class="detail">
+    <!-- 轮播图 -->
+    <view>
+        <swiper style="height: 350px;" indicator-dots>
+            <swiper-item wx:for="{{imgList}}" wx:key="index" style="height: 100%;">
+                <image src="{{item}}" style="width: 100%;height: 100%;" />
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 标题 -->
+    <view style="padding: 0 10px;background-color: white;border-top: 1px solid #efefef;">
+        <view class="detail_title">
+            <view class="detail_title_left">
+                <view>{{dataList.prodName}}</view>
+            </view>
+            <view class="detail_title_right" style="text-align: center;" bindtap="changeCollect">
+                <view wx:if="{{flag===true}}">
+                    <image src="/images/icon/prod-col-red.png" style="width: 20px;height: 20px;" />
+                </view>
+                <view wx:if="{{flag===false}}">
+                    <image src="/images/icon/prod-col.png" style="width: 20px;height: 20px;" />
+                </view>
+                <view style="font-size: 12px;"> 收藏</view>
+            </view>
+        </view>
+        <text class="detail_desc">{{dataList.brief}}</text>
+        <view class="detail_price">
+        <!-- <Price price={{price}}></Price> -->
+            <text>￥</text>
+            <text style="font-size: 22px;">{{price}}</text>
+            <text style="font-size: 16px;">.{{priceDot}}</text>
+        </view>
+    </view>
+    <!-- 领券区域 -->
+    <view class="discount">
+        <view class="discount_left">领券</view>
+        <view class="discount_center">
+            <view>满100减10</view>
+            <view>满100减10</view>
+            <view>满100减10</view>
+            <view>满100减10</view>
+        </view>
+        <view class="discount_right">
+            <text>共6张 </text>
+            <van-icon name="ellipsis" />
+        </view>
+    </view>
+    <!-- 评价区域 -->
+    <view class="commend">
+        <view class="commend_title">
+            <view>
+                <text>评价 </text>
+                <text style="font-size: 12px;color: red;"> 好评0%</text>
+            </view>
+            <view bindtap="toCommend">
+                <text style="font-size: 12px;">共0条</text>
+                <image src="/images/icon/more.png"></image>
+            </view>
+        </view>
+        <view class="commend_main">
+            <view>全部(0)</view>
+            <view>好评(0)</view>
+            <view>中评(0)</view>
+            <view>差评(0)</view>
+            <view>有图(0)</view>
+        </view>
+    </view>
+    <!-- 详情长图 -->
+    <view class="detail_long_img">
+        <rich-text nodes="{{content}}" ></rich-text>
+    </view>
+    <view class="detail_foots"></view>
+    <!-- 底部加入购物车 -->
+    <view class="detail_foot">
+        <view class="detail_item" bindtap="toHome">
+            <van-icon name="wap-home-o" size="25px" />
+            <view class="detail_text">首页</view>
+        </view>
+        <view class="detail_item" bindtap="toShopCar">
+            <van-icon name="shopping-cart-o" size="25px" />
+            <view class="detail_text">购物车</view>
+        </view>
+        <view class="addCar" bindtap="handleShow">加入购物车</view>
+        <view class="nowPurchase" bindtap="handleShow">立即购买</view>
+        <view class="shop_count">{{length}}</view>
+    </view>
+    <!-- 弹窗 -->
+    <van-popup show="{{ show }}" closeable position="bottom" custom-style="height: 70%" bind:close="onClose">
+        <view class="mask_content">
+            <view class="mask_content_top">
+                <!-- <image src="{{skuList[indexs].pic}}"></image> -->
+                <image src="{{myImg}}"></image>
+                <view>
+                    <view style="color: red;">￥{{myPrice}}</view>
+                    <view>
+                        <!-- <text wx:for="{{selectPropArr}}" wx:key="item">{{item}} </text> -->
+                        <text>{{myName}}</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 
+                {
+                    版本：[],
+                    颜色:[],
+                    内存:[]
+                }
+             -->
+            <!-- 
+                 循环对象的方式 
+                 wx:for-index="key" 是对象的键名
+                 wx:for-item="item" 是整个键值
+                 因为我们的结构是对象中每一项是键名:数组键值，所以需要再次循环键值这个数组
+              -->
+            <view class="mask_content_item" wx:for="{{allPropRender}}" wx:for-index="key" wx:key="index" >
+                <text>{{key}}</text>
+                <view>
+                    <button size="mini" wx:for="{{item}}" wx:for-item="value" data-key="{{key}}" data-value="{{value}}" bindtap="chooseItem" class="{{wxs.addItem(selectPropArr,value)?'active':''}}"  data-index="{{index}}">{{value}}</button>
+                    <!-- <button size="mini">原厂延保版</button>
+                    <button size="mini" disabled>公开版</button> -->
+                </view>
+            </view>
+            <!-- <view class="mask_content_item">
+                <text>颜色</text>
+                <view>
+                    <button size="mini">深空灰色</button>
+                    <button size="mini">银色</button>
+                    <button size="mini" disabled>金色</button>
+                </view>
+            </view> -->
+            <!-- <view class="mask_content_item">
+                <text>内存</text>
+                <view>
+                    <button size="mini">64GB</button>
+                    <button size="mini">256GB</button>
+                    <button size="mini" disabled>512GB</button>
+                </view>
+            </view> -->
+            <view class="detail_mask_count">
+                <text>数量</text>
+                <van-stepper value="{{ 1 }}" bind:change="onChange" />
+            </view>
+            <view class="detail_mask_footer">
+                <view class="addCar1" bindtap="addShopCar">加入购物车</view>
+                <view class="nowPurchase1" bindtap="purchase">立即购买</view>
+            </view>
+        </view>
+    </van-popup>
+</view>
+
+<wxs module="wxs" src="../../utils/util.wxs"></wxs>

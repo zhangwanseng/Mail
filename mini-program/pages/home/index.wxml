@@ -1,0 +1,140 @@
+<!--pages/home/index.wxml-->
+<view>
+    <!-- 搜索框 -->
+    <!-- <view class="home_top" bindtap="toSearch">
+        <input type="text" placeholder="搜索" placeholder-style="color:#ccc;" class="home_top_search" />
+        <image src="/images/icon/search.png" class="home_search" />
+    </view> -->
+    <MySearch/>
+
+    <!-- 轮播图 -->
+    <view class="home_swiper">
+        <swiper style="height: 400rpx;" indicator-dots circular indicator-color="#fff" indicator-active-color="#1c7de8">
+            <swiper-item wx:for="{{swiperList}}" wx:key="index" style="height: 100%;">
+                <image lazy-load src="{{item.imgUrl}}" />
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 新品推荐 -->
+    <view class="home_nav">
+        <view class="home_nav_item" bindtap="toRecommend">
+            <image lazy-load src="/images/icon/newProd.png" />
+            <view>新品推荐</view>
+        </view>
+        <view bindtap="test" class="home_nav_item">
+            <image lazy-load src="/images/icon/timePrice.png" />
+            <view>限时特惠</view>
+        </view>
+        <view class="home_nav_item" bindtap="dailyCrazy">
+            <image lazy-load src="/images/icon/neweveryday.png" />
+            <view>每日疯抢</view>
+        </view>
+        <view class="home_nav_item">
+            <image lazy-load src="/images/icon/newprods.png" />
+            <view>领优惠券</view>
+        </view>
+    </view>
+
+    <!-- 通知 -->
+    <view class="notice">
+        <image lazy-load src="/images/icon/horn.png" class="horn" mode="aspectFit" />
+        <swiper vertical autoplay class="notice_swiper">
+            <swiper-item wx:for="{{noticeList}}" wx:key="index">
+                <text>{{item.title}}</text>
+            </swiper-item>
+        </swiper>
+        <text>></text>
+    </view>
+
+
+    <!-- 每日上新 -->
+    <!-- <view class="home_list" wx:for="{{dataList}}" wx:key="item.id">
+        <view class="home_list_title">
+            <text class="home_list_title_left">{{item.title}}</text>
+            <text class="home_list_title_right">查看更多</text>
+        </view>
+        <view class="home_list_contain">
+            <view wx:for="item.productDtoList" wx:for-item="containItem">
+                <view>
+                <image></image>
+                </view>
+            </view>
+        </view>
+        <view style="padding: 0 10px;">
+            <view class="home_list_content">
+                <view class="home_list_content_item" wx:for="{{dataList}}" bindtap="toDetail" 
+                >
+                    <image src="{{item.pic}}" />
+                    <view>{{item.prodName}}</view>
+                    <text>￥{{item.price}}.00</text>
+                </view>
+            </view>
+        </view>
+    </view> -->
+
+    <!-- 最外层 -->
+    <block class="list" wx:for="{{dataList}}" wx:key="style">
+        <view class="list_main" wx:if="{{item.style==2}}" style="background: url('/images/icon/bg1.png') no-repeat;background-size:100% 200px;">
+            <view class="list_title">
+                <text class="list_title_left" style="color: white;font-size: 17px;">{{item.title}}</text>
+                <text class="list_title_right" style="color: white;">查看更多</text>
+            </view>
+            <view class="list_contain">
+                <view class="list_item" wx:for="{{item.productDtoList}}" wx:for-item="itemCon" bindtap="toDetail" data-id="{{itemCon.prodId}}" wx:key="index">
+                    <image lazy-load src="{{itemCon.pic}}"></image>
+                    <view class="list_desc">{{itemCon.prodName}}</view>
+                    <view class="list_price">
+                        <text>￥</text>
+                        <text>{{itemCon.price}}</text>
+                        <text>.{{itemCon.priceDot}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="list_main" wx:if="{{item.style==1}}">
+            <view class="list_title">
+                <text class="list_title_left" style="font-size: 17px;">{{item.title}}</text>
+                <text class="list_title_right1" style="font-size: 12px;line-height: 30px;">更多 ></text>
+            </view>
+            <view class="list_contain1">
+                <view class="list_item1" wx:for="{{item.productDtoList}}" wx:for-item="itemCon" bindtap="toDetail" data-id="{{itemCon.prodId}}" wx:key="index">
+                    <image lazy-load src="{{itemCon.pic}}"></image>
+                    <view class="list_desc1">{{itemCon.prodName}}</view>
+                    <view style="font-size: 12px;color: #ccc;height: 15px;line-height: 15px;padding: 0 10px;">{{itemCon.brief}}</view>
+                    <view class="list_price1">
+                        <view>
+                            <text>￥</text>
+                            <text>{{itemCon.price}}</text>
+                            <text>.{{itemCon.priceDot}}</text>
+                        </view>
+                        <image src="/images/icon/car-new.png" style="width: 20px;height: 20px;"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="list_main" wx:if="{{item.style==0}}">
+            <view class="list_title">
+                <text class="list_title_left" style="font-size: 17px;">{{item.title}}</text>
+                <!-- <text class="list_title_right1" style="font-size: 12px;line-height: 30px;">更多 ></text> -->
+            </view>
+            <view class="list_contain2">
+                <view class="list_item2" wx:for="{{item.productDtoList}}" wx:for-item="itemCon" bindtap="toDetail" data-id="{{itemCon.prodId}}" wx:key="index">
+                    <image lazy-load class="list_item2-logo"  src="{{itemCon.pic}}"></image>
+                    <view class="list_right">
+                        <view class="list_desc">{{itemCon.prodName}}</view>
+                        <view style="font-size: 12px;color: #ccc;">{{itemCon.brief}}</view>
+                        <view class="list_price2">
+                            <view>
+                                <text>￥</text>
+                                <text>{{itemCon.price}}</text>
+                                <text>.{{itemCon.priceDot}}</text>
+                            </view>
+                            <image lazy-load src="/images/icon/car-new.png" style="width: 20px;height: 20px;"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

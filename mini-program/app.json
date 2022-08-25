@@ -1,0 +1,108 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/classify/index",
+        "pages/shopcar/index",
+        "pages/mine/index",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/login/index",
+        "pages/detail/index",
+        "pages/recommend/index",
+        "pages/dailyCrazy/index",
+        "pages/search/index",
+        "pages/searchResult/index",
+        "pages/submitOrder/index",
+        "pages/address/index",
+        "pages/collection/index",
+        "redBag/pages/red/index",
+        "pages/livePlayer/index",
+        "pages/editorAddress/index",
+        "utils/format.js",
+        "pages/allOrder/index",
+        "pages/setting/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "亚米精选",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "text": "首页",
+                "iconPath": "/images/tabbar/homepage.png",
+                "selectedIconPath": "/images/tabbar/homepage-sel.png"
+            },
+            {
+                "pagePath": "pages/classify/index",
+                "text": "分类",
+                "iconPath": "/images/tabbar/category.png",
+                "selectedIconPath": "/images/tabbar/category-sel.png"
+            },
+            {
+                "pagePath": "pages/shopcar/index",
+                "text": "购物车",
+                "iconPath": "/images/tabbar/basket.png",
+                "selectedIconPath": "/images/tabbar/basket-sel.png"
+            },
+            {
+                "pagePath": "pages/livePlayer/index",
+                "text": "直播",
+                "iconPath": "/images/tabbar/live.png",
+                "selectedIconPath": "/images/tabbar/live-sel.png"
+            },
+            {
+                "pagePath": "pages/mine/index",
+                "text": "我的",
+                "iconPath": "/images/tabbar/user.png",
+                "selectedIconPath": "/images/tabbar/user-sel.png"
+            }
+        ]
+    },
+    "requiredPrivateInfos": [
+        "getFuzzyLocation",
+        "chooseLocation",
+        "choosePoi",
+        "getLocation"
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "电商平台将获得您的地理位置"
+        }
+    },
+    "subPackages": [
+        {
+            "root": "Addr",
+            "name": "addr",
+            "pages": [
+                "pages/addAddress/index"
+            ]
+        },
+        {
+            "root": "Red",
+            "name": "red",
+            "pages": [
+                "pages/red/index"
+            ],
+            "independent": true
+        }
+    ],
+    "preloadRule": {
+        "pages/mine/index": {
+            "network": "wifi",
+            "packages": [
+                "addr"
+            ]
+        }
+    },
+    "plugins": {
+        "live-player-plugin": {
+            "version": "1.3.0",
+            "provider": "wx2b03c6e691cd7370"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<!--pages/classify/index.wxml-->
+
+<import src="index.skeleton.wxml" />
+<template is="skeleton" wx:if="{{loading}}"></template>
+
+<view hidden="{{hidden}}">
+    <!-- 顶部搜索框 -->
+    <!-- <view class="home_top">
+    <input type="text" placeholder="搜索您想要的商品" placeholder-style="color:#ccc;" class="home_top_search" />
+    <image src="/images/icon/search.png" class="home_search" />
+</view> -->
+    <MySearch PlaceholderValue='搜索您想要的商品' />
+
+
+    <view style="display: flex;">
+        <!-- 左侧边sidebar -->
+        <van-sidebar active-key="{{ activeKey }}">
+            <van-sidebar-item wx:for="{{classifyList}}" wx:key="index" title="{{item.categoryName}}" wx:key="index" bindtap="handleClick" data-myindex="{{index}}" data-myId="{{item.categoryId}}" />
+        </van-sidebar>
+        <!-- 右侧边 -->
+        <view class="classify_right">
+            <image src="{{classifyList[activeKey].pic}}" class="classify_right_img" lazy-load/>
+            <view wx:for="{{dataList}}">
+                <van-card bindtap="toDetail" data-id="{{item.prodId}}" price="{{item.price}}" desc="{{item.brief}}" title="{{item.prodName}}" thumb="{{ item.pic }}" />
+            </view>
+        </view>
+    </view>
+
+</view>

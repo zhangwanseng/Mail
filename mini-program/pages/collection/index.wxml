@@ -1,0 +1,23 @@
+<!--pages/collection/index.wxml-->
+<!-- <view class="collection">
+    <view class="collection_item" wx:for="{{collectionList}}" wx:key="index" bindtap="toDetail" data-id="{{item.prodId}}">
+       <image src="{{item.pic}}"></image>
+       <view>{{item.prodName}}</view>
+       <text>￥{{item.price}}</text>
+    </view>
+</view> -->
+
+<!-- <van-card  price="{{item.price}}" desc="描述信息" title="{{item.prodName}}" thumb="{{ item.pic }}" /> -->
+
+<view class="list_contain1">
+    <view class="list_item1" wx:for="{{collectionList}}" wx:key="index" bindtap="toDetail" data-id="{{item.prodId}}">
+        <image src="{{item.pic}}"></image>
+        <view class="list_desc1">{{item.prodName}}</view>
+        <view class="list_price1">
+            <view>
+                <text>￥</text>
+                <text>{{item.price}}</text>
+            </view>
+        </view>
+    </view>
+</view>

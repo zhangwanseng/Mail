@@ -1,0 +1,53 @@
+/* pages/editorAddress/index.wxss */
+.edit_address{
+    margin-bottom: 20px;
+}
+.edit_address_item{
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    align-content: center;
+    border-bottom: 1px solid #efefef;
+    padding: 0 5px;
+}
+.edit_address_item>view{
+    width: 30%;
+    text-align: left;
+}
+.edit_address_item input{
+   height: 100%;
+}
+.save_address{
+    width: 100%;
+    height:70px;
+   display: flex;
+   /* text-align: center; */
+   justify-content: center;
+   align-items: center;
+}
+.delete_address{
+    width: 100%;
+    height:70px;
+   display: flex;
+   /* text-align: center; */
+   justify-content: center;
+   align-items: center;
+}
+.delete_address>view{
+    width: 280px;
+    height: 50px;
+    border-radius: 25px;
+    background: red;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+.save_address>view{
+    width: 280px;
+    height: 50px;
+    border-radius: 25px;
+    background: red;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}

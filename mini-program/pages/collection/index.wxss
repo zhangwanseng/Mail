@@ -1,0 +1,61 @@
+/* pages/collection/index.wxss */
+.collection{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 14px;
+    box-sizing: border-box;
+    /* padding: 0 10px; */
+    padding: 0 32rpx;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.collection_item{
+    width: calc((100% - 14px) / 2);
+}
+.collection_item image{
+    width: 100%;
+    height: 150px;
+}
+
+
+
+
+.list_contain1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.list_item1{
+    width: 45%;
+    height: 280px;
+    background-color: white;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.list_item1>image{
+    width: 100%;
+    height: 160px;
+}
+.list_desc1{
+    padding: 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    height: 50px;
+    line-height: 50px;
+}
+.list_price1{
+    color: red;
+    line-height: 70px;
+    line-height: 70px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

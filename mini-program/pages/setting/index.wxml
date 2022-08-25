@@ -1,0 +1,6 @@
+<!--pages/setting/index.wxml-->
+<view class="setting">
+    <button type="default" size="mini" bindtap="backLogin">
+        退出登录
+    </button>
+</view>

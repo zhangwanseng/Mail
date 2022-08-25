@@ -1,0 +1,22 @@
+<!--pages/search/index.wxml-->
+<!-- 搜索框 -->
+<view class="home_top">
+    <input type="text" placeholder="搜索" placeholder-style="color:#999;" class="home_top_search" bindconfirm="addSearch" value="{{inputValue}}"/>
+    <image src="/images/icon/search.png" class="home_search" />
+    <text bindtap="handleCancle">取消</text>
+</view>
+<!-- 热门搜索 -->
+<view class="hot_search" style="height: 100px;line-height: 100px;border-bottom: 1px solid #ccc;">
+    <text style="color: #999;">热门搜索</text>
+    <view style="border-bottom: 1px solid #efefef;"></view>
+</view>
+<!-- 搜索历史 -->
+<view style="padding-top: 10px;">
+    <view class="search_history">
+        <text style="color: #999;">搜索历史</text>
+        <image src="/images/icon/clear-his.png" style="width: 20px;height: 20px;" bindtap="clearSearch"/>
+    </view>
+    <view class="SearchHistory">
+        <view wx:for="{{historyList}}" wx:key="item" class="item-tab">{{item}}</view>
+    </view>
+</view>

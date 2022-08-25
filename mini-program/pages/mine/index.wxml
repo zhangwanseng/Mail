@@ -1,0 +1,91 @@
+<!--pages/mine/index.wxml-->
+
+<view style="background-color: #f7f7f7;">
+    <view class="mine-userinfo" style="background-color: white;">
+       <image class="mine-avator" src="{{avatarImg}}"/>
+       <view style="padding-top: 10px;">{{nickName}}</view>
+    </view>
+
+    <view class="phone" style="background-color: white;">
+        <text>绑定手机号后可查看订单和领取优惠券，</text>
+        <text class="bind_phone">去绑定</text>
+    </view>
+
+    <view class="order"  style="background-color: white;padding: 0 10px;">
+        <view class="order_top" style="border-bottom: 1px solid #efefef;">
+            <text class="order_top_left">我的订单</text>
+            <text class="order_top_right" bindtap="lookAll">查看全部 > </text>
+        </view>
+        <view class="home_nav">
+            <view class="home_nav_item">
+                <image src="/images/icon/toPay.png" />
+                <view>待支付</view>
+            </view>
+            <view class="home_nav_item">
+                <image src="/images/icon/toDelivery.png" />
+                <view>待发货</view>
+            </view>
+            <view class="home_nav_item">
+                <image src="/images/icon/toTake.png" />
+                <view>待收货</view>
+            </view>
+            <view class="home_nav_item">
+                <image src="/images/icon/toComment.png" />
+                <view>已完成</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="mine_message" style="background-color: white;">
+        <view bindtap="addCollect">
+            <text>{{collectionNum}}</text>
+            <view>我的收藏</view>
+        </view>
+        <view>
+            <text>5</text>
+            <view>我的消息</view>
+        </view>
+        <view>
+            <text>3</text>
+            <view>我的足迹</view>
+        </view>
+    </view>
+
+    <view class="mine_footer" style="background-color: white;">
+        <view class="mine_item">
+            <view class="mine_item_left">
+                <image class="mine_logo" src="/images/icon/promotion.png" />
+                <text>分销中心</text>
+            </view>
+            <text>></text>
+        </view>
+        <view class="mine_item">
+            <view class="mine_item_left">
+                <image class="mine_logo" src="/images/icon/getCoupon.png" />
+                <text>领券中心</text>
+            </view>
+            <text>></text>
+        </view>
+        <view class="mine_item">
+            <view class="mine_item_left">
+                <image class="mine_logo" src="/images/icon/myCoupon.png" />
+                <text>我的优惠券</text>
+            </view>
+            <text>></text>
+        </view>
+        <view class="mine_item">
+            <view class="mine_item_left" bindtap="toAddress">
+                <image class="mine_logo" src="/images/icon/myAddr.png" />
+                <text>收货地址</text>
+            </view>
+            <text>></text>
+        </view>
+        <view class="mine_item">
+            <view class="mine_item_left" bindtap="toBack">
+                <image class="mine_logo" src="/images/icon/newprods.png" />
+                <text>个人设置</text>
+            </view>
+            <text>></text>
+        </view>
+    </view>
+</view>

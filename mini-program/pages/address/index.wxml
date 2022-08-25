@@ -1,0 +1,26 @@
+<!--pages/address/index.wxml-->
+<view class="address">
+    <!-- 收货地址列表 -->
+    <view class="address_list">
+        <view class="address_item" wx:if="{{addressList.length}}" wx:for="{{addressList}}" wx:key="index">
+            <view class="address_main">
+                <view class="address_item_left">
+                    <view>
+                        <text>{{item.receiver}} </text>
+                        <text>{{item.mobile}}</text>
+                    </view>
+                    <view class="myaddress">{{item.province}} {{item.city}} {{item.area}} {{item.addr}}</view>
+                    <!-- <view class="myaddress">{{item.pInput}}{{item.aInput}}</view> -->
+                </view>
+                <image src="/images/icon/revise.png" bindtap="editAddress" data-id="{{item.addrId}}"></image>
+            </view>
+            <view class="address_option" bindtap="setDefault" data-myId="{{item.addrId}}">
+                <checkbox checked="{{item.commonAddr}}"></checkbox>
+                <text class="defalt_address">设为默认地址</text>
+            </view>
+        </view>
+    </view>
+ 
+    <!-- 新增收货地址 -->
+    <view class="add_address" bindtap="toAddAddress">新增收货地址</view>
+</view>

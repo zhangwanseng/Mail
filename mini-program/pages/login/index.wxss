@@ -1,0 +1,13 @@
+/* pages/login/index.wxss */
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 220px;
+    padding: 70px;
+}
+.login_text{
+    font-size: 12px;
+}

@@ -1,0 +1,7 @@
+<!--pages/login/index.wxml-->
+<view class="login">
+    <image src="/images/icon/logo.png" style="width: 100px;height: 100px;" />
+    <view>电商平台</view>
+    <view class="login_text">申请获得你的公开信息 （昵称、头像等）</view>
+    <button type="warn" style="width: 220px;" bindtap="authorLogin">微信授权</button>
+</view>

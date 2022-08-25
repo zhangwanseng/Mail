@@ -1,0 +1,7 @@
+<!--Components/MySearch/index.wxml-->
+<view class="mysearch">
+    <view style="text-align: center;width: 100%;margin-left: 3%;position: relative;margin-bottom: 10px;" bindtap="toSearch">
+    <view style="background: #efefef;height: 36px;border-radius: 18px;width: 94%;text-align: center;line-height: 36px;color: #999;font-size: 14px;" >{{PlaceholderValue}}</view>
+    <image src="/images/icon/search.png" class="home_searchs" />
+</view>
+</view>

@@ -1,0 +1,9 @@
+.all_item{
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    line-height: 50px;
+}
+.heightlight{
+    border-bottom: 1px solid red;
+}

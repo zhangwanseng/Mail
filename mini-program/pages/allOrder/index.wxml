@@ -1,0 +1,9 @@
+<!--pages/allOrder/index.wxml-->
+<view>
+    <view class="all_item">
+        <text wx:for="{{list}}" wx:key="index" class="{{index===active?'heightlight':''}}" bindtap="changeItem" data-index="{{index}}">{{item}}</text>
+    </view>
+    <view wx:for="{{allList}}" wx:key="index" >
+        <van-card num="{{item.orderItemDtos[0].prodCount}}" price="{{item.orderItemDtos[0].price}}" desc="{{item.orderItemDtos[0].skuName}}" title="{{item.orderItemDtos[0].prodName}}" thumb="{{item.orderItemDtos[0].pic}}" />
+    </view>
+</view>
